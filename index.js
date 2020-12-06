@@ -22,7 +22,7 @@ const multiplication = (num1, num2) => {
   // set both num1 and num2 to absolute value
   let absoluteValue1 = Math.abs(num1);
   let absoluteValue2 = Math.abs(num2);
-  // assign abs value of num1 to sum1
+  // assign abs value of num1 to sumOfNumbers
   let sumOfNumbers = absoluteValue1;
 
   // since multiplication is addition
