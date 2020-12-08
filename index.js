@@ -70,11 +70,12 @@ hint:
 
 //@param {string}
 //@return {character} => array of characters
-vowelOrConsonant = (str) => {
+vowelOrConsonant = () => {
+  let userInputOfWords = prompt('Please enter one word. Do not include single or double quotes.')
   // set user input to lowercase so that program does
   // not have to diffentiate between lower case and
   // upper case
-  const setLowerCase = str.toLowerCase();
+  const setLowerCase = userInputOfWords.toLowerCase();
   // set lower cased string to a new variable called
   // arrayOfLetters, to keep better track of the
   // for loop
@@ -99,25 +100,26 @@ vowelOrConsonant = (str) => {
       blankConsonantArray.push(arrayOfLetters[i]);
     }
   }
-
-  // create a prompt to allow user to choose between vowel or consonant
-  const userDecidesVowelsOrConsonants = prompt(
-    `'Did you want an array of your vowels first or your consonants first? Please type 'vowels' or 'consonants' without quotes.`
-  );
-  // if user selects for vowels, return the newly written array from blankVowelArray
-  const concatVowelsFirst = `You asked for vowels first. Your vowels are: [${blankVowelArray}]. \nYour consonants are [${blankConsonantArray}]`;
-  // if user selects for consonants, return newly written array from blankConsonantArray
-  const concatConsonantFirst = `You asked for consonants first. Your consonants are: [${blankConsonantArray}]. \nYour consonants are [${blankVowelArray}]`;
-  // if user selects vowel or VOWEL
-  if (userDecidesVowelsOrConsonants === "vowel" || "VOWEL") {
-    // return vowels
+  // concat vowels with my consonants
+  let concat_vowels_then_consonant = blankVowelArray.concat(blankConsonantArray);
+  // convat consonants with my vowels
+  let concat_consonant_then_vowels = blankConsonantArray.concat(blankVowelArray);
+  let userDecides = prompt(`Did you want an array of your vowels first or your consonants first? Please type 'vowels' or 'consonants' without quotes.`);
+  
+  // my return statement is stuck on vowel at the moment. 
+  // I'll have to ask about this issue
+  if (userDecides === "vowels" || "VOWELS") {
+      // if user selects for vowels, return the newly written array from blankVowelArray 
+      // and the concatted array.
+    let concatVowelsFirst = `You asked for vowels first. Your vowels are: [${blankVowelArray}]. \nYour consonants are [${blankConsonantArray}] Concatenated (joined together) with your requested vowels first, your result would be [${concat_vowels_then_consonant}]`;
     return concatVowelsFirst;
-  } else if (userDecidesVowelsOrConsonants === "consonant" || "CONSONANT") {
-    // if user selects consonant or CONSONANT
+  } else if (userDecides === "consonants" || "CONSONANTS") {
+      // if user selects for consonants, return newly written array from blankConsonantArray
+      // and the concatted array
+    let concatConsonantFirst = `You asked for consonants first. Your consonants are: [${blankConsonantArray}]. \nYour vowels are [${blankVowelArray}] Concatenated (joined together) with your requested consonants first, your result would be [${concat_consonant_then_vowels}]`;
     return concatConsonantFirst;
-    // for anything else, say return error
   } else {
-    return `Sorry, you didn't specify 'vowel' or 'consonant'!`;
+    return `Sorry, you didn't decide vowel or consonants`;
   }
 };
 
