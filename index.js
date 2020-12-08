@@ -12,7 +12,7 @@ hint: multiplication is a sequence of sums
 
 // my function is defined
 const multiplication = (num1, num2) => {
-  // edge case for if the user inputs a 0. 
+  // edge case for if the user inputs a 0.
   // if either num1 or num2 is 0, always
   // return a zero.
   if (num1 === 0 || num2 === 0) {
@@ -27,7 +27,7 @@ const multiplication = (num1, num2) => {
 
   // since multiplication is addition
   // skipping a few steps, a for loop
-  // is created to increment the base 
+  // is created to increment the base
   // number (sumOfNumbers) to the total
   // number of times indicated by the
   // abs of num2 (absoluteValue2)
@@ -38,7 +38,7 @@ const multiplication = (num1, num2) => {
     // value number of num2 (absoluteValue2)
     sumOfNumbers += absoluteValue1;
   }
-  // another edge case - if user 
+  // another edge case - if user
   // inputs a negative number for
   // either parameter, returns the
   // negative value of the sum of
@@ -55,8 +55,8 @@ const multiplication = (num1, num2) => {
 const answer1 = multiplication(0, 4);
 console.log("answer1", answer1);
 
-const htmlTarget = document.getElementById('a-1')
-htmlTarget.innerHTML = answer1
+const htmlTarget = document.getElementById("a-1");
+htmlTarget.innerHTML = answer1;
 /*
 ------------------------ Question 2 ---------------------------
 Write a function that recieves a string as a parameter and evaluate each
@@ -71,7 +71,9 @@ hint:
 //@param {string}
 //@return {character} => array of characters
 vowelOrConsonant = () => {
-  let userInputOfWords = prompt('Please enter one word. Do not include single or double quotes.')
+  let userInputOfWords = prompt(
+    "Please enter one word. Do not include single or double quotes."
+  );
   // set user input to lowercase so that program does
   // not have to diffentiate between lower case and
   // upper case
@@ -101,21 +103,27 @@ vowelOrConsonant = () => {
     }
   }
   // concat vowels with my consonants
-  let concat_vowels_then_consonant = blankVowelArray.concat(blankConsonantArray);
+  let concat_vowels_then_consonant = blankVowelArray.concat(
+    blankConsonantArray
+  );
   // convat consonants with my vowels
-  let concat_consonant_then_vowels = blankConsonantArray.concat(blankVowelArray);
-  let userDecides = prompt(`Did you want an array of your vowels first or your consonants first? Please type 'vowels' or 'consonants' without quotes.`);
-  
-  // my return statement is stuck on vowel at the moment. 
+  let concat_consonant_then_vowels = blankConsonantArray.concat(
+    blankVowelArray
+  );
+  let userDecides = prompt(
+    `Did you want an array of your vowels first or your consonants first? Please type 'vowels' or 'consonants' without quotes.`
+  );
+
+  // my return statement is stuck on vowel at the moment.
   // I'll have to ask about this issue
   if (userDecides === "vowels" || "VOWELS") {
-      // if user selects for vowels, return the newly written array from blankVowelArray 
-      // and the concatted array.
+    // if user selects for vowels, return the newly written array from blankVowelArray
+    // and the concatted array.
     let concatVowelsFirst = `You asked for vowels first. Your vowels are: [${blankVowelArray}]. \nYour consonants are [${blankConsonantArray}] Concatenated (joined together) with your requested vowels first, your result would be [${concat_vowels_then_consonant}]`;
     return concatVowelsFirst;
   } else if (userDecides === "consonants" || "CONSONANTS") {
-      // if user selects for consonants, return newly written array from blankConsonantArray
-      // and the concatted array
+    // if user selects for consonants, return newly written array from blankConsonantArray
+    // and the concatted array
     let concatConsonantFirst = `You asked for consonants first. Your consonants are: [${blankConsonantArray}]. \nYour vowels are [${blankVowelArray}] Concatenated (joined together) with your requested consonants first, your result would be [${concat_consonant_then_vowels}]`;
     return concatConsonantFirst;
   } else {
@@ -164,9 +172,9 @@ guessTheNumber = () => {
    You have three attempts to correctly guess the number I am thinking of. \nThe number is between 10 and 50. \nWhen ready, type in your first number.\nCurrently, you have ${playerInfo.livesLeft} lives left and ${playerInfo.timesFailed} attempts so far.`);
 
   // loop defined accessing the property at the
-  // key of livesLeft.  
+  // key of livesLeft.
   for (var i = 0; i < playerInfo.livesLeft; i++) {
-    // made user input an integer strictly equal to 
+    // made user input an integer strictly equal to
     // random number generator. if guessed correctly
     // print 'woo!' and loop breaks
     if (+gameSetup === randomNumberGenerator) {
@@ -175,13 +183,13 @@ guessTheNumber = () => {
       // else, if number user guessed does not equal
       // randomNumberGenerator, then the property at
       // the key of livesLeft of the object of playerInfo
-      // is decremented, and property at the key of 
+      // is decremented, and property at the key of
       // timesFailed is incremented
     } else if (+gameSetup !== randomNumberGenerator) {
       playerInfo.livesLeft--;
       playerInfo.timesFailed++;
       // the value properties at the key of livesLeft
-      // and timesFailed are kept tracked and are 
+      // and timesFailed are kept tracked and are
       // returned to user to give user sense of progress
       // in the game
       prompt(
@@ -243,7 +251,7 @@ sort = () => {
   ];
 
   // blank array is created in order to return this
-  // array to user. eventually, the blank array is 
+  // array to user. eventually, the blank array is
   // filled with relevant data for the user by utilizing
   // the method .push()
   let returnedDescendingResults = [];
@@ -278,14 +286,14 @@ sort = () => {
       // and sort using the .sort() method, descending
       returnedDescendingResults.sort((a, b) => b - a);
     } else {
-      // edge case in case user doesn't input a correct option - 
-      // in that case, loop ends. 
+      // edge case in case user doesn't input a correct option -
+      // in that case, loop ends.
       return `Sorry! You didn't enter a correct option!`;
     }
   }
   // blank array defined earlier is filled with
   // data aggregated from for loop - user makes
-  // a selection and 
+  // a selection and
   return returnedDescendingResults.join("; ");
 };
 const answer4 = sort();
